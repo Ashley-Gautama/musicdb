@@ -1,0 +1,14 @@
+<h1>Welcome to music database </h1>
+
+
+<p><%=link_to"Artists",artists_path%></p>
+<p><%=link_to "Songs", songs_path%></p>
+<% if user_signed_in? %>
+<p>Welcome back, <%= current_user.email %></p>
+<p><%=link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
+
+
+<%else%>
+
+<p><%=link_to "Sign in", new_user_session_path%></p>
+<%end%>

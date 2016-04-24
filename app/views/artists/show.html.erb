@@ -1,0 +1,18 @@
+<h1>
+   <%= @artist.name %>
+</h1>
+
+<p>Age:<%=@artist.age %></p>
+
+<p><%= image_tag(@artist.photo)%></p>
+
+<p>Description:<%= simple_format @artist.bio %></p>
+
+<h2>Songs</h2>
+
+<% songs = @artist.songs.sort_by { |song| song.title } %>
+
+<%= render songs, hide_artist: true %>
+
+<%= link_to 'Back', artists_path %>
+<%= link_to 'New Song', new_artist_song_path(artist_id: @artist.id)%>
